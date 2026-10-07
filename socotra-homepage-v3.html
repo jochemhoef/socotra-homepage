@@ -1136,9 +1136,13 @@
 
     .suite-head h2 {
       font-size: var(--type-h2);
-      font-weight: var(--type-h2-weight);
+      font-weight: 500;
       line-height: 1.15;
       letter-spacing: var(--type-h2-tracking);
+    }
+
+    .suite-head h2 strong {
+      font-weight: inherit;
     }
 
     .suite-boxes-shell {
@@ -3321,15 +3325,9 @@
       box-shadow: none;
     }
 
-    .nav-v3.is-scrolled .nav-pill {
-      background: #fff;
-      border-bottom: 1px solid rgba(28, 28, 26, 0.08);
-      box-shadow: 0 8px 32px rgba(14, 34, 56, 0.06);
-    }
-
     /* ─── HERO V3 (split screen) ─── */
     .hero-v3 {
-      background: #faf9f6;
+      background: #f4f3ee;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -3347,7 +3345,7 @@
       flex-direction: column;
       justify-content: center;
       padding: calc(var(--nav-h) + 48px) var(--hero-v3-gutter) 48px;
-      background: #faf9f6;
+      background: #f4f3ee;
       color: var(--ink);
     }
 
@@ -3356,12 +3354,12 @@
       align-items: center;
       gap: 8px;
       margin-bottom: 28px;
-      padding: 4px 14px 4px 4px;
+      padding: 3px 12px 3px 3px;
       width: fit-content;
       border-radius: 100px;
       background: #fff;
-      border: none;
-      box-shadow: 0 1px 3px rgba(28, 28, 26, 0.06);
+      border: 1px solid rgba(28, 28, 26, 0.08);
+      box-shadow: 0 1px 2px rgba(28, 28, 26, 0.04);
       font-size: 13px;
       font-weight: 500;
       color: var(--ink);
@@ -3456,13 +3454,13 @@
       position: relative;
       min-height: 0;
       overflow: hidden;
-      background-color: #060e16;
+      background-color: #c9bfd6;
       background-image:
-        radial-gradient(ellipse 85% 65% at 22% 78%, rgba(124, 213, 227, 0.12) 0%, transparent 55%),
-        radial-gradient(ellipse 70% 45% at 82% 22%, rgba(90, 160, 175, 0.08) 0%, transparent 58%),
-        radial-gradient(ellipse 60% 50% at 50% 100%, rgba(14, 34, 56, 0.95) 0%, transparent 62%),
-        radial-gradient(ellipse 55% 40% at 8% 12%, rgba(4, 10, 18, 0.9) 0%, transparent 55%),
-        linear-gradient(168deg, #081018 0%, #0e2238 38%, #142f3d 58%, #18385d 74%, #040a10 100%);
+        radial-gradient(ellipse 90% 70% at 16% 78%, rgba(236, 228, 242, 0.96) 0%, transparent 58%),
+        radial-gradient(ellipse 80% 42% at 48% 26%, rgba(110, 168, 166, 0.72) 0%, transparent 64%),
+        radial-gradient(ellipse 70% 55% at 92% 96%, rgba(36, 22, 68, 0.98) 0%, transparent 58%),
+        radial-gradient(ellipse 50% 40% at 78% 38%, rgba(168, 148, 196, 0.45) 0%, transparent 62%),
+        linear-gradient(165deg, #d8d0e6 0%, #bcc8c8 30%, #c8b8d6 58%, #2e2154 100%);
     }
 
     .hero-v3-right::before {
@@ -3471,8 +3469,8 @@
       inset: 0;
       z-index: 1;
       pointer-events: none;
-      opacity: 0.3;
-      mix-blend-mode: soft-light;
+      opacity: 0.42;
+      mix-blend-mode: overlay;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 180px 180px;
     }
@@ -3532,7 +3530,7 @@
       align-items: center;
       gap: 28px;
       padding: 20px 0 20px var(--hero-v3-gutter);
-      background: #faf9f6;
+      background: #f4f3ee;
       border-top: 1px solid rgba(28, 28, 26, 0.08);
     }
 
@@ -3581,7 +3579,7 @@
       .nav-v3.is-mobile-open .nav-pill {
         border-radius: 0;
         padding: 12px var(--hero-v3-gutter);
-        background: #faf9f6;
+        background: #f4f3ee;
         border-bottom: 1px solid rgba(28, 28, 26, 0.08);
       }
       .nav-v3 .nav-toggle {
@@ -3626,6 +3624,856 @@
         right: auto;
         bottom: auto;
       }
+    }
+
+
+    /* ─── V5 (Solidroad-style cinematic hero) ─── */
+    .nav-v5 {
+      top: 0;
+      padding: 0;
+      pointer-events: auto;
+    }
+
+    .nav-v5 .nav-pill,
+    .nav-v5.on-dark .nav-pill {
+      max-width: none;
+      width: 100%;
+      margin: 0;
+      border-radius: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      padding: 16px var(--site-inset);
+      transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
+    }
+
+    .nav-v5 .nav-logo img,
+    .nav-v5.on-dark .nav-logo img {
+      filter: brightness(0) invert(1);
+      transition: filter 0.35s var(--ease);
+    }
+
+    .nav-v5 .nav-menu { margin: 0 auto; }
+
+    .nav-v5 .nav-trigger {
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      border-radius: 8px;
+    }
+
+    .nav-v5.on-dark .nav-trigger {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .nav-v5.on-dark .nav-trigger:hover,
+    .nav-v5.on-dark .nav-item.is-open .nav-trigger {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+
+    .nav-v5 .nav-actions { gap: 8px; }
+
+    .nav-v5 .btn-nav-ghost {
+      font-family: var(--heading);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 9px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      background: transparent;
+    }
+
+    .nav-v5 .btn-nav-cta,
+    .nav-v5.on-dark .btn-nav-cta {
+      border-radius: 100px;
+      background: #fff;
+      border: 1px solid #fff;
+      color: #111;
+      box-shadow: none;
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 600;
+    }
+
+    .nav-v5.on-dark .btn-nav-cta:hover {
+      transform: none;
+      background: #f4f4f2;
+      box-shadow: none;
+    }
+
+    .nav-v5.on-light .nav-pill {
+      background: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-v5.on-light .nav-logo img {
+      filter: none;
+    }
+
+    .nav-v5.on-light .nav-trigger {
+      color: var(--ink-soft);
+    }
+
+    .nav-v5.on-light .nav-trigger:hover,
+    .nav-v5.on-light .nav-item.is-open .nav-trigger {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .nav-v5.on-light .btn-nav-cta {
+      background: var(--hero-overlay);
+      border-color: var(--hero-overlay);
+      color: #fff;
+    }
+
+    .nav-v5.on-light .btn-nav-cta:hover {
+      background: #0a1624;
+      border-color: #0a1624;
+    }
+
+    .nav-v5.on-light .nav-toggle {
+      color: var(--ink);
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-v5 {
+      position: relative;
+      min-height: min(820px, 88vh);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      color: #fff;
+      background-color: #061018;
+      background-image:
+        radial-gradient(ellipse 88% 42% at 14% 8%, rgba(124, 213, 227, 0.42) 0%, transparent 58%),
+        radial-gradient(ellipse 95% 48% at 42% 72%, rgba(124, 213, 227, 0.55) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 40% at 78% 58%, rgba(168, 232, 236, 0.38) 0%, transparent 58%),
+        radial-gradient(ellipse 60% 36% at 92% 18%, rgba(6, 16, 24, 0.85) 0%, transparent 55%),
+        radial-gradient(ellipse 55% 40% at 8% 88%, rgba(6, 14, 22, 0.9) 0%, transparent 58%),
+        linear-gradient(145deg, #07141e 0%, #0c2434 26%, #3d7f8c 48%, #7CD5E3 58%, #123544 74%, #061018 100%);
+    }
+
+    .hero-v5::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.92;
+      mix-blend-mode: soft-light;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 128px 128px;
+    }
+
+    .hero-v5::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.48;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");
+      background-size: 96px 96px;
+    }
+
+    .hero-v5-bg,
+    .hero-v5-wash,
+    .hero-v5-glow { display: none; }
+
+    .hero-v5-main {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 24px;
+      align-items: center;
+      padding: calc(var(--nav-h) + 44px) 0 20px var(--site-inset);
+    }
+
+    .hero-v5-copy {
+      max-width: 560px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-v5 h1 {
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .hero-v5-h1-line { display: block; }
+
+    .hero-v5-lead {
+      font-size: clamp(16px, 1.5vw, 18px);
+      line-height: 1.65;
+      color: rgba(255,255,255,0.78);
+      max-width: 56ch;
+      margin-bottom: 28px;
+      text-wrap: pretty;
+    }
+
+    .hero-v5-lead-nowrap {
+      white-space: nowrap;
+    }
+
+    .hero-v5-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-v5-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal);
+      color: var(--navy-deep);
+      font-family: var(--heading);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 13px 22px;
+      border-radius: 100px;
+    }
+
+    .hero-v5-cta--ghost {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.38);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .hero-v5-cta--ghost:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-v5-ui {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: auto;
+      overflow: visible;
+    }
+
+    .hero-v5-card {
+      position: relative;
+      right: 0;
+      left: auto;
+      width: min(760px, 58vw);
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--ink);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-right: none;
+      border-radius: 22px 0 0 22px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-v5-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px 12px;
+      font-family: var(--heading);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .hero-v5-kpis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      padding: 0 22px 16px;
+    }
+
+    .hero-v5-kpi {
+      background: #f4f6f7;
+      border: 1px solid #eceeef;
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .hero-v5-kpi strong {
+      display: block;
+      font-family: var(--heading);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-v5-kpi span {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-v5-table {
+      flex: 0;
+      overflow: hidden;
+      padding: 0 10px 14px;
+    }
+
+    .hero-v5-row {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.7fr;
+      gap: 10px;
+      align-items: center;
+      padding: 11px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+    }
+
+    .hero-v5-row:nth-child(odd) { background: #f6f7f8; }
+
+    .hero-v5-name { font-weight: 600; color: var(--ink); }
+    .hero-v5-meta { color: var(--muted); }
+
+    .hero-v5-badge {
+      justify-self: end;
+      padding: 4px 8px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(124, 213, 227, 0.22);
+      color: var(--navy-deep);
+    }
+
+    .hero-v5-badge.is-alert {
+      background: #ffe8e2;
+      color: #b54732;
+    }
+
+    .hero-v5-logos {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      overflow: hidden;
+      padding: 16px 0 52px var(--site-inset);
+    }
+
+    .hero-v5-logos-label {
+      flex-shrink: 0;
+      margin: 0;
+      font-family: var(--heading);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      white-space: nowrap;
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-v5-logos-marquee {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(90deg, transparent 0%, #000 88px, #000 calc(100% - 72px), transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 88px, #000 calc(100% - 72px), transparent 100%);
+    }
+
+    .hero-v5-logos-marquee::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -8px;
+      bottom: -8px;
+      width: 96px;
+      z-index: 2;
+      pointer-events: none;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: linear-gradient(90deg, rgba(6, 16, 24, 0.92) 0%, rgba(6, 16, 24, 0.55) 42%, transparent 100%);
+      mask-image: linear-gradient(90deg, #000 0%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 100%);
+    }
+
+    .hero-v5-logos-track {
+      display: flex;
+      width: max-content;
+      animation: heroV5LogoMarquee 32s linear infinite;
+    }
+
+    .hero-v5-logos-set {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .hero-v5-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 44px;
+    }
+
+    .hero-v5-logo img {
+      height: 28px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.82;
+    }
+
+    @keyframes heroV5LogoMarquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-33.333%); }
+    }
+
+    .v4-features {
+      padding: 8px var(--site-inset) 28px;
+    }
+
+    .v4-features-shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      background: #f6f6f5;
+      border-radius: 32px;
+      padding: 12px 12px 14px;
+      overflow: hidden;
+    }
+
+    .v4-tabs {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 32px;
+      margin-bottom: 14px;
+      padding: 4px 6px 0;
+    }
+
+    .v4-tabs-indicator {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 1px;
+      pointer-events: none;
+      opacity: 0;
+      transition:
+        transform 0.5s var(--ease),
+        width 0.5s var(--ease),
+        opacity 0.2s ease;
+      will-change: transform, width;
+    }
+
+    .v4-tabs-indicator.is-ready {
+      opacity: 1;
+    }
+
+    .v4-tab {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      width: auto;
+      padding: 8px 2px 14px;
+      border: none;
+      border-radius: 0;
+      font-family: var(--heading);
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(28, 28, 26, 0.38);
+      background: transparent;
+      transition: color 0.25s var(--ease);
+    }
+
+    .v4-tab:hover {
+      color: rgba(28, 28, 26, 0.62);
+    }
+
+    .v4-tab.is-active {
+      background: transparent;
+      color: var(--ink);
+      box-shadow: none;
+    }
+
+    .v4-tab-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: transparent;
+      flex-shrink: 0;
+      display: block;
+      transition: background 0.2s var(--ease);
+    }
+
+    .v4-tab.is-active .v4-tab-dot {
+      background: var(--teal);
+    }
+
+    .v4-cols {
+      display: block;
+      background: #fff;
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 420px;
+    }
+
+    .v4-col {
+      display: none;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 40px;
+      align-items: center;
+      padding: 40px 36px 36px;
+      min-height: 0;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .v4-col.is-active { display: grid; }
+
+    .v4-col-icon {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+      margin-bottom: 28px;
+    }
+
+    .v4-col h3 {
+      font-size: clamp(24px, 2.2vw, 30px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .v4-col p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      max-width: 54ch;
+    }
+
+    .v4-col-link {
+      font-family: var(--heading);
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      position: relative;
+      margin-top: 44px;
+      padding-bottom: 3px;
+      color: var(--ink);
+      align-self: flex-start;
+    }
+
+    .v4-col-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0.28);
+      transform-origin: left;
+      transition: transform 0.5s var(--ease);
+    }
+
+    .v4-col-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .v4-col-link-arrow {
+      display: inline-block;
+      transition: transform 0.5s var(--ease), opacity 0.35s var(--ease);
+      opacity: 0.72;
+    }
+
+    .v4-col-link:hover .v4-col-link-arrow {
+      transform: translateX(6px);
+      opacity: 1;
+    }
+
+    .v4-skel {
+      background: #f6f7f8;
+      border: 1px solid #eceeed;
+      border-radius: 16px;
+      padding: 22px 20px;
+      min-height: 280px;
+    }
+
+    .v4-skel-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .v4-skel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .v4-skel-line {
+      height: 10px;
+      border-radius: 100px;
+      background: #e4e6e8;
+    }
+
+    .v4-skel-line--sm { width: 28%; }
+    .v4-skel-line--md { width: 62%; }
+    .v4-skel-line--lg { width: 88%; }
+
+    .v4-skel-block {
+      height: 44px;
+      border-radius: 10px;
+      background: #eceeef;
+      margin-bottom: 10px;
+    }
+
+    .v4-skel-block:last-child { margin-bottom: 0; }
+
+    .v4-skel-block.is-accent {
+      background: rgba(124, 213, 227, 0.28);
+    }
+
+
+    .page-v6 .suite .v4-features-shell {
+      max-width: none;
+      margin: 0;
+      border-radius: 22px;
+      padding: 10px 10px 12px;
+    }
+
+    .page-v6 .v4-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      padding: 0;
+      margin-bottom: 10px;
+      background: transparent;
+      border-radius: 0;
+      align-items: stretch;
+    }
+
+    .page-v6 .v4-tabs-indicator {
+      top: 0;
+      bottom: auto;
+      height: 100%;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow:
+        0 1px 2px rgba(28, 28, 26, 0.06),
+        0 0 0 1px rgba(28, 28, 26, 0.05);
+    }
+
+    .page-v6 .v4-tab {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 10px;
+      text-align: center;
+      gap: 8px;
+    }
+
+    .page-v6 .v4-cols {
+      border-radius: 12px;
+    }
+
+    .page-v6 .v4-skel {
+      border-radius: 12px;
+    }
+
+    /* ─── V6 (darker v5 hero + heavier grain) ─── */
+    .page-v6 .hero-v5 {
+      background-color: #040a12;
+      background-image:
+        radial-gradient(ellipse 88% 42% at 14% 8%, rgba(124, 213, 227, 0.28) 0%, transparent 58%),
+        radial-gradient(ellipse 95% 48% at 42% 72%, rgba(124, 213, 227, 0.34) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 40% at 78% 58%, rgba(168, 232, 236, 0.22) 0%, transparent 58%),
+        radial-gradient(ellipse 60% 36% at 92% 18%, rgba(4, 10, 18, 0.92) 0%, transparent 55%),
+        radial-gradient(ellipse 55% 40% at 8% 88%, rgba(4, 8, 14, 0.94) 0%, transparent 58%),
+        linear-gradient(145deg, #051018 0%, #0a1e2a 26%, #2a5f68 48%, #4a929c 58%, #0d2834 74%, #040a12 100%);
+      padding-bottom: 24px;
+    }
+
+    .page-v6 .hero-v5-lead {
+      color: #fff;
+    }
+
+    .page-v6 .hero-v5::before {
+      opacity: 0.96;
+      mix-blend-mode: soft-light;
+      background-size: 168px 168px;
+      filter: none;
+    }
+
+    .page-v6 .hero-v5::after {
+      opacity: 0.58;
+      mix-blend-mode: overlay;
+      background-size: 120px 120px;
+    }
+
+    .page-v6 .hero-v5-logos-marquee {
+      mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 72px), transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 72px), transparent 100%);
+    }
+
+    .page-v6 .hero-v5-logos-marquee::before {
+      display: none;
+    }
+
+    .page-v6 .nav-v5 .nav-trigger {
+      font-family: var(--heading);
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 500;
+    }
+
+    .page-v6 .nav-v5 .btn-nav-cta,
+    .page-v6 .nav-v5.on-dark .btn-nav-cta,
+    .page-v6 .nav-v5.on-light .btn-nav-cta {
+      background: var(--teal);
+      border: 1px solid var(--teal);
+      color: var(--navy-deep);
+      box-shadow: none;
+    }
+
+    .page-v6 .nav-v5 .btn-nav-cta:hover,
+    .page-v6 .nav-v5.on-dark .btn-nav-cta:hover,
+    .page-v6 .nav-v5.on-light .btn-nav-cta:hover {
+      transform: none;
+      background: var(--teal-hover);
+      border-color: var(--teal-hover);
+      color: var(--navy-deep);
+      box-shadow: none;
+    }
+
+    .page-v6 .hero-v5-logos {
+      padding-bottom: 64px;
+    }
+
+    .page-v6 .suite {
+      margin-top: -88px;
+      padding-top: 148px;
+      background:
+        linear-gradient(
+          180deg,
+          transparent 0px,
+          rgba(255, 255, 255, 0.04) 24px,
+          rgba(255, 255, 255, 0.14) 56px,
+          rgba(255, 255, 255, 0.32) 88px,
+          rgba(255, 255, 255, 0.58) 120px,
+          rgba(255, 255, 255, 0.82) 152px,
+          #ffffff 184px
+        ),
+        #ffffff;
+      background-repeat: no-repeat;
+    }
+
+    .page-v6 [class*="btn-"],
+    .page-v6 .hero-v5-cta,
+    .page-v6 .footer-newsletter-form button {
+      font-family: var(--heading);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.2;
+      text-transform: none;
+      letter-spacing: -0.01em;
+      padding: 10px 20px;
+    }
+
+    .page-v6 .btn-demo {
+      padding: 10px 22px;
+    }
+
+    @media (max-width: 1024px) {
+      .nav-v5 .btn-nav-ghost { display: none; }
+      .nav-v5 .nav-pill,
+      .nav-v5.is-mobile-open .nav-pill {
+        background: rgba(10, 22, 36, 0.94);
+      }
+      .nav-v5 .nav-toggle {
+        background: transparent;
+        border-color: rgba(255,255,255,0.22);
+        color: #fff;
+      }
+      .nav-v5 .nav-menu { border-top-color: rgba(255,255,255,0.12); }
+      .nav-v5 .mega-col h4,
+      .nav-v5 .mega-col a { color: rgba(255,255,255,0.86); }
+      .hero-v5-main {
+        grid-template-columns: 1fr;
+        padding: calc(var(--nav-h) + 28px) var(--site-inset) 20px;
+      }
+      .hero-v5-h1-line { white-space: normal; }
+      .hero-v5-ui { height: auto; }
+      .hero-v5-card {
+        right: calc(50% - 50vw);
+        width: min(760px, 92vw);
+        border-radius: 22px 0 0 22px;
+      }
+      .hero-v5-logos { flex-wrap: wrap; gap: 12px; padding-bottom: 40px; }
+      .page-v6 .hero-v5-logos { padding-bottom: 48px; }
+      .page-v6 .suite {
+        margin-top: -56px;
+        padding-top: 112px;
+        background:
+          linear-gradient(
+            180deg,
+            transparent 0px,
+            rgba(255, 255, 255, 0.06) 20px,
+            rgba(255, 255, 255, 0.22) 48px,
+            rgba(255, 255, 255, 0.52) 76px,
+            rgba(255, 255, 255, 0.8) 104px,
+            #ffffff 132px
+          ),
+          #ffffff;
+        background-repeat: no-repeat;
+      }
+      .nav-v5.on-light .nav-pill,
+      .nav-v5.on-light.is-mobile-open .nav-pill { background: #fff; }
+      .nav-v5.on-light .nav-toggle { color: var(--ink); border-color: rgba(0,0,0,0.12); }
+      .nav-v5.on-light .nav-menu { border-top-color: rgba(0,0,0,0.08); }
+      .nav-v5.on-light .mega-col h4,
+      .nav-v5.on-light .mega-col a { color: var(--ink-soft); }
+      .nav-v5 .nav-toggle { color: #fff; border-color: rgba(255,255,255,0.22); }
+      .nav-v5 .nav-pill,
+      .nav-v5.is-mobile-open .nav-pill { background: rgba(6, 16, 24, 0.94); }
+      .nav-v5 .mega-col h4,
+      .nav-v5 .mega-col a { color: var(--ink-soft); }
+      .v4-col { min-height: 0; display: none; grid-template-columns: 1fr; gap: 24px; padding: 28px 20px; }
+      .v4-col.is-active { display: grid; }
+      .v4-cols { min-height: 0; }
+      .page-v6 .v4-tab { font-size: 11px; padding: 10px 8px; }
+      .page-v6 .v4-tabs { gap: 4px; padding: 0; }
+      .page-v6 .v4-tabs-indicator { top: 0; height: 100%; border-radius: 8px; }
     }
 
     .version-switch a:hover {
@@ -3734,12 +4582,12 @@
 
   </style>
 </head>
-<body>
+<body class="page-v6">
 
-  <nav class="version-switch" id="versionSwitch" aria-label="Homepage versions"><span>Review</span><a href="socotra-homepage.html">v1</a><a href="socotra-homepage-v2.html">v2</a><a href="socotra-homepage-v3.html" class="is-active">v3</a><a href="socotra-homepage-v4.html">v4</a><a href="socotra-homepage-v5.html">v5</a><a href="socotra-homepage-v6.html">v6</a><a href="socotra-homepage-v7.html">v7</a><button type="button" class="version-switch-toggle" aria-label="Hide version switcher"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1L1 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button></nav>
+  <nav class="version-switch" id="versionSwitch" aria-label="Homepage versions"><span>Review</span><a href="socotra-homepage.html">v1</a><a href="socotra-homepage-v2.html">v2</a><a href="socotra-homepage-v3.html" class="is-active">v3</a><button type="button" class="version-switch-toggle" aria-label="Hide version switcher"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1L1 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button></nav>
 <button type="button" class="version-switch-reveal" id="versionSwitchReveal" hidden aria-label="Show version switcher">Review</button>
 
-  <nav class="nav nav-v3 on-light" id="nav">
+  <nav class="nav nav-v5 on-dark" id="nav">
     <div class="nav-pill">
       <a href="https://www.socotra.com/" class="nav-logo">
         <img src="https://www.socotra.com/wp-content/uploads/2024/10/Socotra-Logo-Black-1024x311.png" alt="Socotra" width="148" height="37" />
@@ -3858,210 +4706,185 @@
     </div>
   </nav>
 
-  <!-- HERO V3 -->
-  <section class="hero-v3" id="hero">
-    <div class="hero-v3-split">
-      <div class="hero-v3-left">
-        <a class="hero-v3-announce" href="https://www.socotra.com/ai-assistant/">
-          <span class="hero-v3-announce-pill">New</span>
-          <span class="hero-v3-announce-cta">Meet Socotra Assistant <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </a>
+
+  <!-- HERO V5 -->
+  <section class="hero-v5" id="hero">
+    <div class="hero-v5-main">
+      <div class="hero-v5-copy">
         <h1>
-          <span class="hero-v3-h1-line">The Most Advanced Insurance</span>
-          <span class="hero-v3-h1-line">Core Platform. Period.</span>
+          <span class="hero-v5-h1-line">The Most Advanced Insurance</span>
+          <span class="hero-v5-h1-line">Core Platform. Period.</span>
         </h1>
-        <p class="hero-v3-lead">Socotra delivers the most powerful insurance platform on the market, empowering insurers to support any number of insurance products, policies, or users—with the industry’s lowest total cost of ownership (TCO).</p>
-        <a href="#demo" class="hero-v3-cta">Get a Demo</a>
+        <p class="hero-v5-lead">Socotra delivers the most powerful insurance platform on the market, empowering insurers to support any number of insurance products, policies, or users—with the industry’s lowest total cost of ownership <span class="hero-v5-lead-nowrap">(TCO).</span></p>
+        <div class="hero-v5-ctas">
+          <a class="hero-v5-cta" href="#demo">Get a Demo <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="hero-v5-cta hero-v5-cta--ghost" href="https://www.socotra.com/case-studies/">Success Stories</a>
+        </div>
       </div>
-      <div class="hero-v3-right">
-        <div class="hero-v3-card">
-        <aside class="hero-v2-chat" id="heroChat" aria-label="Socotra Assistant conversation">
-          <div class="hero-v2-chat-head">
-            <span class="hero-v2-chat-avatar" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3z" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v8M8.5 10.5 12 12.2l3.5-1.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            <div>
-              <p class="hero-v2-chat-title">Socotra Assistant</p>
-              <p class="hero-v2-chat-status">Live on Policy</p>
-            </div>
+      <div class="hero-v5-ui" aria-hidden="true">
+        <div class="hero-v5-card">
+          <div class="hero-v5-card-head">
+            <span>Policy Operations</span>
+            <span>Live</span>
           </div>
-          <div class="hero-v2-chat-thread" id="heroChatThread">
-            <div class="hero-v2-msg hero-v2-msg--ai">I can look up policies, check coverage, or draft endorsements. What do you need?</div>
+          <div class="hero-v5-kpis">
+            <div class="hero-v5-kpi"><strong>482</strong><span>Policies bound</span></div>
+            <div class="hero-v5-kpi"><strong>24</strong><span>Need review</span></div>
+            <div class="hero-v5-kpi"><strong>99.2%</strong><span>Straight-through</span></div>
           </div>
-          <form class="hero-v2-chat-composer" id="heroChatForm">
-            <label class="visually-hidden" for="hero-chat-q">Ask Socotra Assistant</label>
-            <input class="hero-v2-chat-input" id="hero-chat-q" type="text" autocomplete="off" placeholder="Ask about a policy…" />
-            <button class="hero-v2-chat-send" type="submit" aria-label="Send message">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M12 5l-6 6M12 5l6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </form>
-        </aside>
-          <p class="hero-v3-card-foot">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
-            Moving to the next conversation…
-          </p>
+          <div class="hero-v5-table">
+            <div class="hero-v5-row"><span class="hero-v5-name">Harborline Logistics</span><span class="hero-v5-meta">POL-48291</span><span class="hero-v5-badge">Bound</span></div>
+            <div class="hero-v5-row"><span class="hero-v5-name">Atlas Traders</span><span class="hero-v5-meta">POL-48110</span><span class="hero-v5-badge is-alert">Review</span></div>
+            <div class="hero-v5-row"><span class="hero-v5-name">Midcontinent Specialty</span><span class="hero-v5-meta">POL-48002</span><span class="hero-v5-badge">Bound</span></div>
+            <div class="hero-v5-row"><span class="hero-v5-name">Northshore Mutual</span><span class="hero-v5-meta">POL-47988</span><span class="hero-v5-badge">Bound</span></div>
+            <div class="hero-v5-row"><span class="hero-v5-name">Cedar Ridge P&amp;C</span><span class="hero-v5-meta">POL-47841</span><span class="hero-v5-badge is-alert">Review</span></div>
+            <div class="hero-v5-row"><span class="hero-v5-name">Helios Marine</span><span class="hero-v5-meta">POL-47790</span><span class="hero-v5-badge">Bound</span></div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="hero-v3-trust" id="trusted">
-      <p class="hero-v2-logos-label label label-dot">Trusted by leading insurers</p>
-      <div class="hero-v2-logos">
-        <div class="hero-v2-logos-marquee" aria-label="Trusted by leading insurers">
-          <div class="hero-v2-logos-track">
-            <div class="hero-v2-logos-set">
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/02/axa.svg" alt="AXA" /></a>
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/02/iag.svg" alt="IAG" /></a>
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/02/msamlin.svg" alt="MS Amlin" /></a>
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/11/MoO_VertLogo_654C.webp" alt="Mutual of Omaha" /></a>
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2025/01/Symetra-Logo-New-1-e1735939672254.png" alt="Symetra" /></a>
-            </div>
-            <div class="hero-v2-logos-set" aria-hidden="true">
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/axa.svg" alt="" /></a>
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/iag.svg" alt="" /></a>
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/msamlin.svg" alt="" /></a>
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/11/MoO_VertLogo_654C.webp" alt="" /></a>
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2025/01/Symetra-Logo-New-1-e1735939672254.png" alt="" /></a>
-            </div>
-            <div class="hero-v2-logos-set" aria-hidden="true">
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/axa.svg" alt="" /></a>
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/iag.svg" alt="" /></a>
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/msamlin.svg" alt="" /></a>
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/11/MoO_VertLogo_654C.webp" alt="" /></a>
-              <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2025/01/Symetra-Logo-New-1-e1735939672254.png" alt="" /></a>
-            </div>
-          </div>
+    <div class="hero-v5-logos" id="trusted">
+      <p class="hero-v5-logos-label">Trusted by leading insurers</p>
+      <div class="hero-v5-logos-marquee">
+      <div class="hero-v5-logos-track">
+        <div class="hero-v5-logos-set">
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/02/axa.svg" alt="AXA" /></a>
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/02/iag.svg" alt="IAG" /></a>
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/02/msamlin.svg" alt="MS Amlin" /></a>
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/11/MoO_VertLogo_654C.webp" alt="Mutual of Omaha" /></a>
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2025/01/Symetra-Logo-New-1-e1735939672254.png" alt="Symetra" /></a>
         </div>
+        <div class="hero-v5-logos-set" aria-hidden="true">
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/axa.svg" alt="" /></a>
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/iag.svg" alt="" /></a>
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/msamlin.svg" alt="" /></a>
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/11/MoO_VertLogo_654C.webp" alt="" /></a>
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2025/01/Symetra-Logo-New-1-e1735939672254.png" alt="" /></a>
+        </div>
+        <div class="hero-v5-logos-set" aria-hidden="true">
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/axa.svg" alt="" /></a>
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/iag.svg" alt="" /></a>
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/msamlin.svg" alt="" /></a>
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/11/MoO_VertLogo_654C.webp" alt="" /></a>
+          <a class="hero-v5-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2025/01/Symetra-Logo-New-1-e1735939672254.png" alt="" /></a>
+        </div>
+      </div>
       </div>
     </div>
   </section>
-  <script>
-    (function () {
-      var form = document.getElementById('heroChatForm');
-      var input = document.getElementById('hero-chat-q');
-      var thread = document.getElementById('heroChatThread');
-      if (!form || !input || !thread) return;
 
-      var busy = false;
-
-      function addMessage(text, type) {
-        var el = document.createElement('div');
-        el.className = 'hero-v2-msg hero-v2-msg--' + type;
-        el.textContent = text;
-        thread.appendChild(el);
-        thread.scrollTop = thread.scrollHeight;
-        return el;
-      }
-
-      function addTyping() {
-        var el = document.createElement('div');
-        el.className = 'hero-v2-msg hero-v2-msg--ai hero-v2-msg--typing';
-        el.innerHTML = '<i></i><i></i><i></i>';
-        thread.appendChild(el);
-        thread.scrollTop = thread.scrollHeight;
-        return el;
-      }
-
-      function replyFor(text) {
-        var q = text.toLowerCase();
-        if (/(policy|pol-|look up|lookup|wind|miami|coverage)/.test(q)) {
-          return 'POL-48291 is a commercial property policy for Harborline Logistics. Wind is covered in Miami-Dade with a 5% named-storm deductible and a $4.2M building limit.';
-        }
-        if (/(endors|deduct|draft|price|premium)/.test(q)) {
-          return 'I drafted a 2% wind deductible endorsement for that county. Additional premium is $18,640 a year. Ready to send it to underwriting?';
-        }
-        if (/(inbox|underwrit|review|send|notify|broker)/.test(q)) {
-          return 'Sent to the underwriting inbox and flagged the broker. I will let you know when it is approved.';
-        }
-        if (/(bill|invoice|payment)/.test(q)) {
-          return 'The next invoice is $41,280, due 15 Apr 2026. I can post it to billing or email the insured.';
-        }
-        if (/(quote|bind|new product|fleet)/.test(q)) {
-          return 'I can start a commercial auto quote from your existing product. Share the state and vehicle count and I will draft the configuration.';
-        }
-        return 'I can look up a policy, check coverage, draft an endorsement, or send work to underwriting. Try asking about POL-48291.';
-      }
-
-      function respond(text) {
-        var typing = addTyping();
-        setTimeout(function () {
-          typing.className = 'hero-v2-msg hero-v2-msg--ai';
-          typing.textContent = replyFor(text);
-          thread.scrollTop = thread.scrollHeight;
-          busy = false;
-        }, 900);
-      }
-
-      function send(text) {
-        text = (text || '').trim();
-        if (!text || busy) return;
-        busy = true;
-        addMessage(text, 'user');
-        input.value = '';
-        respond(text);
-      }
-
-      function typeIntoInput(text, done) {
-        input.value = '';
-        input.focus();
-        var i = 0;
-        var timer = setInterval(function () {
-          i += 1;
-          input.value = text.slice(0, i);
-          if (i >= text.length) {
-            clearInterval(timer);
-            setTimeout(done, 280);
-          }
-        }, 28);
-      }
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        send(input.value);
-      });
-
-      var demo = 'Look up POL-48291. Is wind covered in Miami-Dade?';
-      setTimeout(function () {
-        typeIntoInput(demo, function () { send(demo); });
-      }, 600);
-    })();
-  </script>
-
-  <!-- PRODUCT SUITE BOXES -->
+  <!-- PRODUCT SUITE TABS -->
   <section class="suite" id="suite">
     <div class="wrap">
       <div class="suite-head">
         <h2>Meet the <strong>Socotra Insurance Suite</strong></h2>
       </div>
-      <div class="suite-boxes-shell">
-      <div class="suite-boxes">
-        <article class="suite-box suite-box--policy">
-          <div class="suite-box-icon-wrap">
-            <img class="suite-box-icon" src="https://www.socotra.com/wp-content/uploads/2025/03/icon1.webp" alt="" width="120" height="120" loading="lazy" />
-          </div>
-          <h3>Socotra Policy</h3>
-          <p>Deploy with any product, geography, or distribution channel using well defined and reusable configuration. Socotra's elegant design and full policy lifecycle allows insurers to build and maintain products with maximum flexibility and minimal effort.</p>
-          <a href="https://www.socotra.com/policy/" class="suite-box-link">Explore Socotra Policy <span class="suite-box-link-arrow" aria-hidden="true">›</span></a>
-        </article>
-        <article class="suite-box suite-box--billing">
-          <div class="suite-box-icon-wrap">
-            <img class="suite-box-icon" src="https://www.socotra.com/wp-content/uploads/2025/03/icon3.webp" alt="" width="120" height="120" loading="lazy" />
-          </div>
-          <h3>Socotra Billing</h3>
-          <p>Make every billing operation headache-free and ensure financial integrity for even the most complex use cases. Socotra Billing easily integrates with general ledger, payments, and policy admin systems, reducing manual processes and improving accuracy.</p>
-          <a href="https://www.socotra.com/billing/" class="suite-box-link">Explore Socotra Billing <span class="suite-box-link-arrow" aria-hidden="true">›</span></a>
-        </article>
-        <article class="suite-box suite-box--ui">
-          <div class="suite-box-icon-wrap">
-            <img class="suite-box-icon" src="https://www.socotra.com/wp-content/uploads/2025/03/icon2.webp" alt="" width="120" height="120" loading="lazy" />
-          </div>
-          <h3>Modern UI &amp; Portals</h3>
-          <p>Deliver modern and intuitive digital experiences for customers, agents, and your team. Socotra offers an array of out-of-the-box and customizable user interfaces and portals that are fully modular.</p>
-          <a href="https://www.socotra.com/ui-portals/" class="suite-box-link">Explore Modern UI &amp; Portals <span class="suite-box-link-arrow" aria-hidden="true">›</span></a>
-        </article>
+      <div class="v4-features-shell">
+      <div class="v4-tabs" role="tablist" aria-label="Socotra products">
+        <span class="v4-tabs-indicator" aria-hidden="true"></span>
+        <button type="button" class="v4-tab is-active" data-col="policy" aria-selected="true"><i class="v4-tab-dot v4-tab-dot--policy" aria-hidden="true"></i> Socotra Policy</button>
+        <button type="button" class="v4-tab" data-col="billing" aria-selected="false"><i class="v4-tab-dot v4-tab-dot--billing" aria-hidden="true"></i> Socotra Billing</button>
+        <button type="button" class="v4-tab" data-col="ui" aria-selected="false"><i class="v4-tab-dot v4-tab-dot--ui" aria-hidden="true"></i> Modern UI &amp; Portals</button>
       </div>
+      <div class="v4-cols">
+        <article class="v4-col v4-col--policy is-active" data-col="policy">
+          <div class="v4-col-copy">
+            <img class="v4-col-icon" src="https://www.socotra.com/wp-content/uploads/2025/03/icon1.webp" alt="" width="96" height="96" />
+            <h3>Socotra Policy</h3>
+            <p>Deploy with any product, geography, or distribution channel using well defined and reusable configuration. Socotra's elegant design and full policy lifecycle allows insurers to build and maintain products with maximum flexibility and minimal effort.</p>
+            <a class="v4-col-link" href="https://www.socotra.com/policy/">Explore Socotra Policy <span class="v4-col-link-arrow" aria-hidden="true">›</span></a>
+          </div>
+          <div class="v4-skel" aria-hidden="true">
+            <div class="v4-skel-top"><i class="v4-skel-dot"></i><i class="v4-skel-line v4-skel-line--sm"></i></div>
+            <i class="v4-skel-line v4-skel-line--lg" style="display:block;margin-bottom:12px"></i>
+            <i class="v4-skel-line v4-skel-line--md" style="display:block;margin-bottom:18px"></i>
+            <div class="v4-skel-block is-accent"></div>
+            <div class="v4-skel-block"></div>
+            <div class="v4-skel-block"></div>
+          </div>
+        </article>
+        <article class="v4-col v4-col--billing" data-col="billing">
+          <div class="v4-col-copy">
+            <img class="v4-col-icon" src="https://www.socotra.com/wp-content/uploads/2025/03/icon3.webp" alt="" width="96" height="96" />
+            <h3>Socotra Billing</h3>
+            <p>Make every billing operation headache-free and ensure financial integrity for even the most complex use cases. Socotra Billing easily integrates with general ledger, payments, and policy admin systems, reducing manual processes and improving accuracy.</p>
+            <a class="v4-col-link" href="https://www.socotra.com/billing/">Explore Socotra Billing <span class="v4-col-link-arrow" aria-hidden="true">›</span></a>
+          </div>
+          <div class="v4-skel" aria-hidden="true">
+            <div class="v4-skel-top"><i class="v4-skel-dot"></i><i class="v4-skel-line v4-skel-line--md"></i></div>
+            <div class="v4-skel-block"></div>
+            <div class="v4-skel-block is-accent"></div>
+            <div class="v4-skel-block"></div>
+            <i class="v4-skel-line v4-skel-line--lg" style="display:block;margin-top:8px"></i>
+          </div>
+        </article>
+        <article class="v4-col v4-col--ui" data-col="ui">
+          <div class="v4-col-copy">
+            <img class="v4-col-icon" src="https://www.socotra.com/wp-content/uploads/2025/03/icon2.webp" alt="" width="96" height="96" />
+            <h3>Modern UI &amp; Portals</h3>
+            <p>Deliver modern and intuitive digital experiences for customers, agents, and your team. Socotra offers an array of out-of-the-box and customizable user interfaces and portals that are fully modular.</p>
+            <a class="v4-col-link" href="https://www.socotra.com/ui-portals/">Explore Modern UI &amp; Portals <span class="v4-col-link-arrow" aria-hidden="true">›</span></a>
+          </div>
+          <div class="v4-skel" aria-hidden="true">
+            <div class="v4-skel-top"><i class="v4-skel-dot"></i><i class="v4-skel-line v4-skel-line--sm"></i></div>
+            <div class="v4-skel-block is-accent"></div>
+            <i class="v4-skel-line v4-skel-line--md" style="display:block;margin:12px 0"></i>
+            <div class="v4-skel-block"></div>
+            <div class="v4-skel-block"></div>
+          </div>
+        </article>
       </div>
     </div>
+    </div>
   </section>
+
+  <script>
+    (function () {
+      var tabsWrap = document.querySelector('.v4-tabs');
+      var tabs = document.querySelectorAll('.v4-tab');
+      var cols = document.querySelectorAll('.v4-col');
+      var line = document.querySelector('.v4-tabs-indicator');
+      if (!tabs.length || !tabsWrap || !line) return;
+
+      function moveIndicator(activeTab) {
+        if (!activeTab) return;
+        var wrapRect = tabsWrap.getBoundingClientRect();
+        var tabRect = activeTab.getBoundingClientRect();
+        var x = tabRect.left - wrapRect.left;
+        var y = tabRect.top - wrapRect.top;
+        line.style.width = tabRect.width + 'px';
+        line.style.height = tabRect.height + 'px';
+        line.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
+        line.classList.add('is-ready');
+      }
+
+      function setActiveTab(tab) {
+        var id = tab.getAttribute('data-col');
+        tabs.forEach(function (t) {
+          t.classList.toggle('is-active', t === tab);
+          t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+        });
+        cols.forEach(function (col) {
+          col.classList.toggle('is-active', col.getAttribute('data-col') === id);
+        });
+        moveIndicator(tab);
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          setActiveTab(tab);
+        });
+      });
+
+      window.addEventListener('resize', function () {
+        moveIndicator(tabsWrap.querySelector('.v4-tab.is-active'));
+      });
+
+      requestAnimationFrame(function () {
+        moveIndicator(tabsWrap.querySelector('.v4-tab.is-active'));
+      });
+    })();
+  </script>
 
   <!-- AGILITY -->
   <section class="agility-section" id="agility">
@@ -4528,8 +5351,19 @@
 
       function updateNav() {
         if (!nav) return;
+        if (nav.classList.contains('nav-v5')) {
+          var heroV5 = document.querySelector('.hero-v5');
+          var scrollThreshold = heroV5 ? Math.min(heroV5.offsetHeight * 0.12, 120) : 80;
+          if (window.scrollY > scrollThreshold) {
+            nav.classList.remove('on-dark');
+            nav.classList.add('on-light');
+          } else {
+            nav.classList.remove('on-light');
+            nav.classList.add('on-dark');
+          }
+          return;
+        }
         if (nav.classList.contains('nav-v3')) {
-          nav.classList.toggle('is-scrolled', window.scrollY > 20);
           nav.classList.remove('on-dark');
           nav.classList.add('on-light');
           return;

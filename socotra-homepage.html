@@ -436,219 +436,570 @@
 
     .btn-ghost:hover { border-color: var(--ink); }
 
-    /* ─── HERO (video background) ─── */
-    .hero-video-section {
+    /* ─── HERO V2 (split headline + featured stage + logo marquee) ─── */
+    .hero-v2 {
       position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-end;
-      padding-top: calc(var(--nav-pill-top) + var(--nav-h) + 24px);
-      padding-bottom: clamp(48px, 8vh, 88px);
-      color: var(--ink);
-      overflow: hidden;
-      background: var(--hero-bg);
-    }
-
-    .hero-media {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-      background: var(--hero-bg);
-    }
-
-    .hero-video {
-      position: absolute;
-      bottom: 0;
-      right: -14%;
-      width: 78%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 82% 36%;
-    }
-
-    .hero-overlay { display: none; }
-
-    .hero-bottom {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      padding-bottom: 0;
-    }
-
-    .hero-content {
-      max-width: 760px;
-      text-align: left;
-    }
-
-    .hero-content h1 {
-      font-size: clamp(36px, 4.6vw, 56px);
-      font-weight: 500;
-      line-height: 1.05;
-      letter-spacing: -0.045em;
-      margin-bottom: 28px;
-      color: var(--ink);
-    }
-
-    .hero-h1-l1 {
-      white-space: nowrap;
-    }
-
-    .hero-h1-highlight {
-      position: relative;
-      display: inline-block;
-      line-height: 1;
-      padding: 0.04em 0.08em 0.05em;
-      border-radius: 4px;
-      isolation: isolate;
-    }
-
-    .hero-h1-highlight::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: #7CD5E3;
-      border-radius: 4px;
-      transform: scaleX(0);
-      transform-origin: left center;
-      animation: heroHighlightFill 0.9s var(--ease) 0.4s forwards;
-      z-index: -1;
-    }
-
-    @keyframes heroHighlightFill {
-      to { transform: scaleX(1); }
-    }
-
-    .hero-lead {
-      font-family: var(--body);
-      font-size: clamp(16px, 1.6vw, 18px);
-      font-weight: 400;
-      line-height: 1.65;
-      color: var(--ink-soft);
-      margin-bottom: 20px;
-      max-width: 68ch;
-    }
-
-    .hero-ai {
-      font-family: var(--body);
-      font-size: clamp(16px, 1.6vw, 18px);
-      font-weight: 400;
-      line-height: 1.65;
-      color: var(--ink-soft);
-      margin-bottom: 52px;
-      max-width: 68ch;
-    }
-
-    .hero-ai a {
-      color: var(--ink);
-      font-weight: 700;
-      border-bottom: 1px solid rgba(28, 28, 26, 0.35);
-      transition: border-color 0.25s, color 0.25s;
-    }
-
-    .hero-ai a:hover {
-      border-color: var(--teal);
-      color: var(--teal);
-    }
-
-    /* ─── TRUSTED LOGOS ─── */
-    .trusted {
       background: var(--white);
-      padding: 56px 0 72px;
+      color: var(--ink);
+      padding-top: calc(var(--nav-pill-top) + var(--nav-h) + 56px);
+      overflow: visible;
     }
 
-    .trusted-bar {
+    .hero-v2-announce {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 10px 12px;
+      margin-bottom: 28px;
+      max-width: 100%;
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      line-height: 1.4;
+      transition: color 0.25s;
     }
 
-    .trusted-link {
-      font-family: var(--heading);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
+    .hero-v2-announce:hover { color: var(--ink-soft); }
+
+    .hero-v2-announce-text {
+      min-width: 0;
+      flex: 1 1 240px;
+    }
+
+    .hero-v2-announce-cta {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: color 0.25s, gap 0.3s var(--ease);
+      margin-left: 2px;
+      font-weight: 700;
+      color: var(--ink);
+      transition: color 0.25s;
     }
 
-    .trusted-link:hover { color: var(--ink); gap: 8px; }
-
-    .logo-row {
-      border: 1px solid var(--line);
-      border-radius: var(--section-radius);
-      overflow: hidden;
-      position: relative;
-      cursor: none;
+    .hero-v2-announce:hover .hero-v2-announce-cta {
+      color: var(--navy);
     }
 
-    .logo-track {
+    .hero-v2-announce-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 22px;
+      padding: 0 10px;
+      border-radius: 100px;
+      background: var(--teal);
+      color: var(--navy-deep);
+      font-family: var(--heading);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-v2-announce-arrow {
+      display: inline-flex;
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      transition: transform 0.3s var(--ease);
+    }
+
+    .hero-v2-announce-arrow svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .hero-v2-announce:hover .hero-v2-announce-arrow {
+      transform: translateX(4px);
+    }
+
+    .hero-v2-top {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: minmax(0, 1fr) auto;
+      justify-content: space-between;
+      gap: 40px 32px;
+      align-items: end;
+      margin-bottom: 72px;
     }
 
-    .logo-item.logo-item--clone {
+    .hero-v2-copy {
+      width: max-content;
+      max-width: 100%;
+    }
+
+    .hero-v2-copy h1 {
+      font-size: clamp(32px, 3.6vw, 50px);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+      margin-bottom: 18px;
+      color: var(--ink);
+      max-width: none;
+    }
+
+    .hero-v2-h1-line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .hero-v2-lead {
+      font-family: var(--body);
+      font-size: clamp(16px, 1.5vw, 18px);
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      width: 0;
+      min-width: 100%;
+      max-width: none;
+    }
+
+    .hero-v2-ctas {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 0;
+      flex-shrink: 0;
+    }
+
+    .hero-v2-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--heading);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      padding: 13px 26px;
+      border-radius: 100px;
+      white-space: nowrap;
+      transition: transform 0.3s var(--ease), background 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+
+    .hero-v2-btn-primary {
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: 0 8px 24px rgba(28, 28, 26, 0.16);
+    }
+
+    .hero-v2-btn-primary:hover {
+      transform: translateY(-2px);
+      background: #000;
+      box-shadow: 0 12px 32px rgba(28, 28, 26, 0.22);
+    }
+
+    .hero-v2-btn-secondary {
+      background: var(--white);
+      color: var(--ink);
+      border: 1px solid #c8c8c2;
+    }
+
+    .hero-v2-btn-secondary:hover {
+      transform: translateY(-2px);
+      background: var(--paper);
+    }
+
+    .hero-v2-stage-wrap {
+      padding: 0 var(--site-inset) 48px;
+    }
+
+    .hero-v2-stage {
+      position: relative;
+      height: clamp(420px, 56vh, 580px);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0e2238;
+    }
+
+    .hero-v2-video,
+    .hero-v2-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center right;
+    }
+
+    .hero-v2-wash {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(14, 34, 56, 0.28) 0%, rgba(14, 34, 56, 0.08) 42%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-v2-grain {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.12;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+    }
+
+    .hero-v2-constellation {
       display: none;
     }
 
-    .logo-item {
+    .hero-v2-card {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      right: auto;
+      top: auto;
+      transform: none;
+      width: min(400px, calc(100% - 40px));
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 16px;
+      box-shadow: 0 24px 64px rgba(14, 34, 56, 0.18), 0 2px 8px rgba(14, 34, 56, 0.08);
+      padding: 22px 22px 0;
+      z-index: 2;
+    }
+
+    .hero-v2-card-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .hero-v2-card-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: #fff4cc;
+      color: #b8860b;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 48px 24px;
-      border-right: 1px solid var(--line);
-      border-radius: 0;
-      transition: background 0.35s var(--ease);
+      flex-shrink: 0;
     }
 
-    .logo-item:last-child { border-right: none; }
-    .logo-item:hover { background: rgba(244, 243, 238, 0.45); }
-
-    .logo-item img {
-      height: 50px;
-      width: auto;
-      max-width: 144px;
-      object-fit: contain;
-      opacity: 0.85;
-      transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
-      pointer-events: none;
-    }
-
-    .logo-item:hover img {
-      opacity: 1;
-      transform: scale(1.03);
-    }
-
-    .logo-cursor-btn {
-      position: fixed;
-      z-index: 500;
+    .hero-v2-card-title {
       font-family: var(--heading);
-      font-size: 10px;
+      font-size: 15px;
       font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background: #DAFDA8;
+      letter-spacing: -0.02em;
       color: var(--ink);
-      padding: 11px 18px;
-      border-radius: 100px;
-      pointer-events: none;
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.92);
-      transition: opacity 0.18s var(--ease), transform 0.18s var(--ease);
-      white-space: nowrap;
-      box-shadow: 0 8px 24px rgba(28, 28, 26, 0.12);
     }
 
-    .logo-cursor-btn.is-visible {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
+    .hero-v2-card-body {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+    }
+
+    .hero-v2-card-body strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .hero-v2-card-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .hero-v2-metric {
+      font-family: var(--heading);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 5px 9px;
+      border-radius: 6px;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .hero-v2-card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid var(--line-faint);
+    }
+
+    .hero-v2-card-selects {
+      display: flex;
+      gap: 8px;
+    }
+
+    .hero-v2-card-select {
+      font-family: var(--heading);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      padding: 6px 10px;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .hero-v2-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-v2-card-iconbtn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      background: var(--white);
+    }
+
+    .hero-v2-card-iconbtn--dark {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--white);
+    }
+
+    .hero-v2-chat {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      bottom: 20px;
+      width: min(380px, calc(100% - 40px));
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1px solid #e6e8ea;
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(14, 34, 56, 0.12);
+      overflow: hidden;
+      z-index: 4;
       pointer-events: auto;
     }
+
+    .hero-v2-chat-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .hero-v2-chat-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hero-v2-chat-title {
+      font-family: var(--heading);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .hero-v2-chat-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .hero-v2-chat-status::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2fb67c;
+    }
+
+    .hero-v2-chat-thread {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-v2-msg {
+      max-width: 88%;
+      font-size: 13px;
+      line-height: 1.5;
+      padding: 10px 12px;
+      border-radius: 14px;
+    }
+
+    .hero-v2-msg--user {
+      align-self: flex-end;
+      background: var(--navy);
+      color: var(--white);
+      border-bottom-right-radius: 4px;
+    }
+
+    .hero-v2-msg--ai {
+      align-self: flex-start;
+      background: #f6f7f8;
+      color: var(--ink);
+      border: 1px solid #eee;
+      border-bottom-left-radius: 4px;
+    }
+
+    .hero-v2-msg--typing {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      min-width: 42px;
+      color: var(--muted);
+    }
+
+    .hero-v2-msg--typing i {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #9aa3ab;
+      animation: chatDot 1s ease-in-out infinite;
+    }
+
+    .hero-v2-msg--typing i:nth-child(2) { animation-delay: 0.15s; }
+    .hero-v2-msg--typing i:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes chatDot {
+      0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+      40% { opacity: 1; transform: translateY(-3px); }
+    }
+
+    .hero-v2-chat-composer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 14px;
+      border-top: 1px solid #eee;
+      background: var(--white);
+    }
+
+    .hero-v2-chat-input {
+      flex: 1;
+      border: 1px solid #e4e6e8;
+      border-radius: 100px;
+      padding: 9px 14px;
+      font: inherit;
+      font-size: 13px;
+      color: var(--ink);
+      background: #fff;
+      outline: none;
+    }
+
+    .hero-v2-chat-input:focus {
+      border-color: #cfd4d8;
+    }
+
+    .hero-v2-chat-input::placeholder {
+      color: #a8adb3;
+    }
+
+    .hero-v2-chat-send {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .hero-v2-logos {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 12px var(--site-inset) 32px;
+      overflow: hidden;
+    }
+
+    .hero-v2-logos-label {
+      flex-shrink: 0;
+      white-space: nowrap;
+      margin: 0;
+    }
+
+    .hero-v2-logos-marquee {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .hero-v2-logos-track {
+      display: flex;
+      width: max-content;
+      animation: heroLogoMarquee 36s linear infinite;
+    }
+
+    .hero-v2-logos:hover .hero-v2-logos-track {
+      animation-play-state: paused;
+    }
+
+    .hero-v2-logos-set {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .hero-v2-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      padding: 8px 52px;
+      text-decoration: none;
+    }
+
+    .hero-v2-logo img {
+      height: 36px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      opacity: 1;
+      transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+    }
+
+    .hero-v2-logo:hover img {
+      transform: scale(1.04);
+    }
+
+    @keyframes heroLogoMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .logo-cursor-btn { display: none; }
+
+    .trusted,
+    .trusted-bar,
+    .trusted-link,
+    .logo-row,
+    .logo-track,
+    .logo-item { display: none; }
 
     /* ─── HERO LIGHT (Amigo serif + border-left) ─── */
     .hero-light {
@@ -2695,75 +3046,107 @@
         margin-bottom: 10px;
       }
 
-      .hero-video-section {
-        display: flex;
-        flex-direction: column;
-        min-height: auto;
-        align-items: stretch;
-        padding-top: calc(var(--nav-pill-top) + var(--nav-h) + 16px);
-        padding-bottom: 0;
-        background: var(--hero-bg);
+      .hero-v2 {
+        padding-top: calc(var(--nav-pill-top) + var(--nav-h) + 20px);
       }
 
-      .hero-bottom {
-        order: 1;
-        position: relative;
-        z-index: 2;
-        padding-bottom: 28px;
+      .hero-v2-top {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 48px;
+        align-items: start;
       }
 
-      .hero-media {
-        order: 2;
-        position: relative;
-        inset: auto;
-        height: clamp(260px, 42vh, 360px);
-        flex-shrink: 0;
-        border-radius: var(--section-radius);
-        overflow: hidden;
-        margin: 0 var(--site-inset) 32px;
-      }
-
-      .hero-video {
-        position: absolute;
-        inset: 0;
+      .hero-v2-copy {
         width: 100%;
-        height: 100%;
-        right: 0;
-        bottom: 0;
-        object-position: 72% 38%;
-      }
-
-      .hero-overlay { display: none; }
-
-      .hero-content {
-        max-width: 100%;
-        padding-top: 0;
-      }
-
-      .hero-lead,
-      .hero-ai {
         max-width: none;
-        font-size: 16px;
       }
 
-      .hero-ai { margin-bottom: 28px; }
+      .hero-v2-ctas {
+        padding-top: 0;
+        flex-wrap: wrap;
+      }
+
+      .hero-v2-stage {
+        height: clamp(380px, 58vh, 480px);
+      }
+
+      .hero-v2-chat {
+        width: min(340px, calc(100% - 28px));
+        top: 14px;
+        left: 14px;
+        bottom: 14px;
+      }
+
+      .hero-v2-card {
+        left: 16px;
+        right: auto;
+        bottom: 16px;
+        width: min(340px, calc(100% - 32px));
+        padding: 18px 18px 0;
+      }
+
+      .hero-v2-logo { padding: 8px 36px; }
     }
 
     @media (max-width: 640px) {
-      .hero-content h1 { font-size: clamp(30px, 7.2vw, 34px); }
-      .hero-h1-l1 { white-space: normal; }
-      .hero-video-section {
-        padding-top: calc(var(--nav-pill-top) + var(--nav-h) + 12px);
+      .hero-v2 {
+        padding-top: calc(var(--nav-pill-top) + var(--nav-h) + 16px);
       }
 
-      .hero-media {
-        height: clamp(240px, 38vh, 320px);
+      .hero-v2-announce {
+        font-size: 13px;
         margin-bottom: 24px;
+        align-items: flex-start;
       }
 
-      .hero-bottom { padding-bottom: 24px; }
+      .hero-v2-announce-text {
+        flex: 1 1 100%;
+        width: 100%;
+      }
 
-      .hero-content { padding-bottom: 0; }
+      .hero-v2-copy h1 { font-size: clamp(28px, 7.4vw, 34px); }
+      .hero-v2-h1-line { white-space: normal; }
+
+      .hero-v2-ctas {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-v2-btn {
+        width: 100%;
+        white-space: nowrap;
+        text-align: center;
+        padding: 13px 16px;
+      }
+
+      .hero-v2-stage {
+        height: clamp(240px, 42vh, 340px);
+        border-radius: 12px;
+      }
+
+      .hero-v2-chat {
+        width: calc(100% - 24px);
+        left: 12px;
+        right: 12px;
+        top: 12px;
+        bottom: 12px;
+      }
+
+      .hero-v2-logos {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding-left: var(--site-inset);
+        padding-right: var(--site-inset);
+      }
+
+      .hero-v2-logos-marquee { width: 100%; }
+
+      .hero-v2-logo { padding: 8px 28px; }
+      .hero-v2-logo img { height: 24px; }
+
       .btn-demo-hero {
         width: 100%;
         text-align: center;
@@ -2855,6 +3238,7 @@
         transition-duration: 0.01ms !important;
       }
       .product-ticker-inner { animation: none; }
+      .hero-v2-logos-track { animation: none; }
       .proof-tab.active .proof-tab-progress { width: 100% !important; }
     }
   
@@ -2964,7 +3348,7 @@
 </head>
 <body>
 
-  <nav class="version-switch" id="versionSwitch" aria-label="Homepage versions"><span>Review</span><a href="socotra-homepage.html" class="is-active">v1</a><a href="socotra-homepage-v2.html">v2</a><a href="socotra-homepage-v3.html">v3</a><a href="socotra-homepage-v4.html">v4</a><a href="socotra-homepage-v5.html">v5</a><a href="socotra-homepage-v6.html">v6</a><a href="socotra-homepage-v7.html">v7</a><button type="button" class="version-switch-toggle" aria-label="Hide version switcher"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1L1 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button></nav>
+  <nav class="version-switch" id="versionSwitch" aria-label="Homepage versions"><span>Review</span><a href="socotra-homepage.html" class="is-active">v1</a><a href="socotra-homepage-v2.html">v2</a><a href="socotra-homepage-v3.html">v3</a><button type="button" class="version-switch-toggle" aria-label="Hide version switcher"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1L1 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button></nav>
 <button type="button" class="version-switch-reveal" id="versionSwitchReveal" hidden aria-label="Show version switcher">Review</button>
 
 
@@ -3087,54 +3471,178 @@
     </div>
   </nav>
 
-  <a href="https://www.socotra.com/case-studies/" class="logo-cursor-btn" id="logoCursorBtn" aria-hidden="true">Read Customer Story</a>
-
-  <!-- VIDEO HERO -->
-  <section class="hero-video-section" id="hero">
-    <div class="hero-media">
-      <video class="hero-video" autoplay muted loop playsinline>
-        <source src="https://www.socotra.com/wp-content/uploads/2024/09/Socotra-Background-video.mp4" type="video/mp4" />
-      </video>
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="wrap hero-bottom">
-      <div class="hero-content">
-        <h1><span class="hero-h1-l1">The <span class="hero-h1-highlight">Most Advanced</span> Insurance</span><br>Core Platform. Period.</h1>
-        <p class="hero-lead">Socotra delivers the most powerful insurance platform on the market, empowering insurers to support any number of insurance products, policies, or users. Accelerate implementations, integrations, and product updates—all with the industry's lowest total cost of ownership (TCO).</p>
-        <p class="hero-ai">Interested in AI? Socotra has the most mature AI in the insurance Industry.<br>Learn more about <a href="https://www.socotra.com/ai-assistant/">Socotra Assistant</a>.</p>
-        <a href="#demo" class="btn-demo btn-demo-hero">Get a Demo</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRUSTED LOGOS -->
-  <section class="trusted" id="trusted">
+  <!-- HERO V2 -->
+  <section class="hero-v2" id="hero">
     <div class="wrap">
-      <div class="trusted-bar">
-        <span class="label label-dot">Trusted by leading insurers</span>
-        <a href="https://www.socotra.com/case-studies/" class="trusted-link">Discover our impact <span class="link-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span></a>
-      </div>
-      <div class="logo-row" id="logoRow">
-        <div class="logo-track" id="logoTrack">
-        <div class="logo-item" data-story-url="https://www.socotra.com/case-studies/">
-          <img src="https://www.socotra.com/wp-content/uploads/2024/02/axa.svg" data-brandfetch="axa.com" data-fallback="https://www.socotra.com/wp-content/uploads/2024/02/axa.svg" alt="AXA" loading="lazy" />
+      <a class="hero-v2-announce" href="https://www.socotra.com/ai-assistant/">
+        <span class="hero-v2-announce-pill">New</span>
+        <span class="hero-v2-announce-text">Socotra has the most mature AI in insurance · <span class="hero-v2-announce-cta">Meet Socotra Assistant <span class="hero-v2-announce-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></span>
+      </a>
+      <div class="hero-v2-top">
+        <div class="hero-v2-copy">
+          <h1>
+            <span class="hero-v2-h1-line">The Most Advanced Insurance</span>
+            <span class="hero-v2-h1-line">Core Platform. Period.</span>
+          </h1>
+          <p class="hero-v2-lead">Socotra delivers the most powerful insurance platform on the market, empowering insurers to support any number of insurance products, policies, or users—with the industry’s lowest total cost of ownership (TCO).</p>
         </div>
-        <div class="logo-item" data-story-url="https://www.socotra.com/case-studies/">
-          <img src="https://www.socotra.com/wp-content/uploads/2024/02/iag.svg" data-brandfetch="iag.com.au" data-fallback="https://www.socotra.com/wp-content/uploads/2024/02/iag.svg" alt="IAG" loading="lazy" />
-        </div>
-        <div class="logo-item" data-story-url="https://www.socotra.com/case-studies/">
-          <img src="https://www.socotra.com/wp-content/uploads/2024/02/msamlin.svg" data-brandfetch="msamlin.com" data-fallback="https://www.socotra.com/wp-content/uploads/2024/02/msamlin.svg" alt="MS Amlin" loading="lazy" />
-        </div>
-        <div class="logo-item" data-story-url="https://www.socotra.com/case-studies/">
-          <img src="https://www.socotra.com/wp-content/uploads/2024/11/MoO_VertLogo_654C.webp" data-brandfetch="mutualofomaha.com" data-fallback="https://www.socotra.com/wp-content/uploads/2024/11/MoO_VertLogo_654C.webp" alt="Mutual of Omaha" loading="lazy" />
-        </div>
-        <div class="logo-item" data-story-url="https://www.socotra.com/case-studies/">
-          <img src="https://www.socotra.com/wp-content/uploads/2025/01/Symetra-Logo-New-1-e1735939672254.png" data-brandfetch="symetra.com" data-fallback="https://www.socotra.com/wp-content/uploads/2025/01/Symetra-Logo-New-1-e1735939672254.png" alt="Symetra" loading="lazy" />
-        </div>
+        <div class="hero-v2-ctas">
+          <a href="#demo" class="hero-v2-btn hero-v2-btn-primary">Get a Demo</a>
+          <a href="https://www.socotra.com/case-studies/" class="hero-v2-btn hero-v2-btn-secondary">See customer stories</a>
         </div>
       </div>
     </div>
+
+    <div class="hero-v2-logos" id="trusted">
+      <p class="hero-v2-logos-label label label-dot">Trusted by leading insurers</p>
+      <div class="hero-v2-logos-marquee" aria-label="Trusted by leading insurers">
+      <div class="hero-v2-logos-track">
+        <div class="hero-v2-logos-set">
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/02/axa.svg" alt="AXA" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/02/iag.svg" alt="IAG" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/02/msamlin.svg" alt="MS Amlin" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/11/MoO_VertLogo_654C.webp" alt="Mutual of Omaha" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2025/01/Symetra-Logo-New-1-e1735939672254.png" alt="Symetra" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/02/axa.svg" alt="" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/02/iag.svg" alt="" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/02/msamlin.svg" alt="" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2024/11/MoO_VertLogo_654C.webp" alt="" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/"><img src="https://www.socotra.com/wp-content/uploads/2025/01/Symetra-Logo-New-1-e1735939672254.png" alt="" /></a>
+        </div>
+        <div class="hero-v2-logos-set" aria-hidden="true">
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/axa.svg" alt="" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/iag.svg" alt="" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/msamlin.svg" alt="" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/11/MoO_VertLogo_654C.webp" alt="" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2025/01/Symetra-Logo-New-1-e1735939672254.png" alt="" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/axa.svg" alt="" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/iag.svg" alt="" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/02/msamlin.svg" alt="" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2024/11/MoO_VertLogo_654C.webp" alt="" /></a>
+          <a class="hero-v2-logo" href="https://www.socotra.com/case-studies/" tabindex="-1"><img src="https://www.socotra.com/wp-content/uploads/2025/01/Symetra-Logo-New-1-e1735939672254.png" alt="" /></a>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="hero-v2-stage-wrap">
+      <div class="hero-v2-stage">
+        <img class="hero-v2-bg" src="https://www.socotra.com/wp-content/uploads/2025/02/Policy-Hero.png" alt="" />
+        <aside class="hero-v2-chat" id="heroChat" aria-label="Socotra Assistant conversation">
+          <div class="hero-v2-chat-head">
+            <span class="hero-v2-chat-avatar" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3z" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v8M8.5 10.5 12 12.2l3.5-1.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div>
+              <p class="hero-v2-chat-title">Socotra Assistant</p>
+              <p class="hero-v2-chat-status">Live on Policy</p>
+            </div>
+          </div>
+          <div class="hero-v2-chat-thread" id="heroChatThread">
+            <div class="hero-v2-msg hero-v2-msg--ai">I can look up policies, check coverage, or draft endorsements. What do you need?</div>
+          </div>
+          <form class="hero-v2-chat-composer" id="heroChatForm">
+            <label class="visually-hidden" for="hero-chat-q">Ask Socotra Assistant</label>
+            <input class="hero-v2-chat-input" id="hero-chat-q" type="text" autocomplete="off" placeholder="Ask about a policy…" />
+            <button class="hero-v2-chat-send" type="submit" aria-label="Send message">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M12 5l-6 6M12 5l6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </form>
+        </aside>
+      </div>
+    </div>
   </section>
+  <script>
+    (function () {
+      var form = document.getElementById('heroChatForm');
+      var input = document.getElementById('hero-chat-q');
+      var thread = document.getElementById('heroChatThread');
+      if (!form || !input || !thread) return;
+
+      var busy = false;
+
+      function addMessage(text, type) {
+        var el = document.createElement('div');
+        el.className = 'hero-v2-msg hero-v2-msg--' + type;
+        el.textContent = text;
+        thread.appendChild(el);
+        thread.scrollTop = thread.scrollHeight;
+        return el;
+      }
+
+      function addTyping() {
+        var el = document.createElement('div');
+        el.className = 'hero-v2-msg hero-v2-msg--ai hero-v2-msg--typing';
+        el.innerHTML = '<i></i><i></i><i></i>';
+        thread.appendChild(el);
+        thread.scrollTop = thread.scrollHeight;
+        return el;
+      }
+
+      function replyFor(text) {
+        var q = text.toLowerCase();
+        if (/(policy|pol-|look up|lookup|wind|miami|coverage)/.test(q)) {
+          return 'POL-48291 is a commercial property policy for Harborline Logistics. Wind is covered in Miami-Dade with a 5% named-storm deductible and a $4.2M building limit.';
+        }
+        if (/(endors|deduct|draft|price|premium)/.test(q)) {
+          return 'I drafted a 2% wind deductible endorsement for that county. Additional premium is $18,640 a year. Ready to send it to underwriting?';
+        }
+        if (/(inbox|underwrit|review|send|notify|broker)/.test(q)) {
+          return 'Sent to the underwriting inbox and flagged the broker. I will let you know when it is approved.';
+        }
+        if (/(bill|invoice|payment)/.test(q)) {
+          return 'The next invoice is $41,280, due 15 Apr 2026. I can post it to billing or email the insured.';
+        }
+        if (/(quote|bind|new product|fleet)/.test(q)) {
+          return 'I can start a commercial auto quote from your existing product. Share the state and vehicle count and I will draft the configuration.';
+        }
+        return 'I can look up a policy, check coverage, draft an endorsement, or send work to underwriting. Try asking about POL-48291.';
+      }
+
+      function respond(text) {
+        var typing = addTyping();
+        setTimeout(function () {
+          typing.className = 'hero-v2-msg hero-v2-msg--ai';
+          typing.textContent = replyFor(text);
+          thread.scrollTop = thread.scrollHeight;
+          busy = false;
+        }, 900);
+      }
+
+      function send(text) {
+        text = (text || '').trim();
+        if (!text || busy) return;
+        busy = true;
+        addMessage(text, 'user');
+        input.value = '';
+        respond(text);
+      }
+
+      function typeIntoInput(text, done) {
+        input.value = '';
+        input.focus();
+        var i = 0;
+        var timer = setInterval(function () {
+          i += 1;
+          input.value = text.slice(0, i);
+          if (i >= text.length) {
+            clearInterval(timer);
+            setTimeout(done, 280);
+          }
+        }, 28);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        send(input.value);
+      });
+
+      var demo = 'Look up POL-48291. Is wind covered in Miami-Dade?';
+      setTimeout(function () {
+        typeIntoInput(demo, function () { send(demo); });
+      }, 600);
+    })();
+  </script>
 
   <!-- PRODUCT SUITE BOXES -->
   <section class="suite" id="suite">
@@ -3633,7 +4141,7 @@
   <script>
     (function () {
       var nav = document.getElementById('nav');
-      var hero = document.querySelector('.hero-video-section');
+      var hero = document.querySelector('.hero-v2');
       var BRANDFETCH_CLIENT_ID = ''; /* https://developers.brandfetch.com */
 
       function updateNav() {
