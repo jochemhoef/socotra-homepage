@@ -2,7 +2,8 @@
   var VERSIONS = [
     'socotra-homepage.html',
     'socotra-homepage-v2.html',
-    'socotra-homepage-v3.html'
+    'socotra-homepage-v3.html',
+    'socotra-homepage-v4.html'
   ];
 
   var current = (location.pathname.split('/').pop() || 'socotra-homepage.html').split('?')[0];
